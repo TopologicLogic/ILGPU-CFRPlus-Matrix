@@ -304,7 +304,7 @@ namespace ILGPU_CFRPlus
 
         }
 
-        //Kernel_BRs(size, brs.View, p1_norm.View, p2_norm.View, mpayoffs.View);
+        //Kernel_Create_Payoffs(size * size, mpayoffs.View, xr.GetView(accelerator.WarpSize));
         static void Kernel_Fill_Payoffs(Index1D z, ArrayView<double> payoffs, RNGView<XorShift128> rnd)
         {
             payoffs[z] = rnd.NextDouble() * 2 - 1;
